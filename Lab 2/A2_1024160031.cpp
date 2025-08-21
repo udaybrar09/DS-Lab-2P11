@@ -21,9 +21,11 @@ void bubbleSort(vector<int>&a){
 }
 
 int missingLinear(vector<int>&a,int n){
-    int sum=n*(n+1)/2;
-    int s=accumulate(a.begin(),a.end(),0);
-    return sum-s;
+    sort(a.begin(),a.end());
+    for(int i=0;i<a.size();i++){
+        if(a[i]!=i+1)return i+1;
+    }
+    return n;
 }
 
 int missingBinary(vector<int>&a,int n){
